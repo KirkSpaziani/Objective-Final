@@ -7,7 +7,7 @@
 //
 #import<Foundation/Foundation.h>
 
-#define PSFinalClass(implClass) if([self class]!=[implClass class]){@throw [NSException exceptionWithName: NSInternalInconsistencyException reason: [NSString stringWithFormat: @"%@ attempted to extend final class %@", NSStringFromClass([self class]), NSStringFromClass([implClass class])] userInfo: nil];}
+#define PSFinalClass(implClass) if(self!=[implClass class]){@throw [NSException exceptionWithName: NSInternalInconsistencyException reason: [NSString stringWithFormat: @"%@ attempted to extend final class %@", NSStringFromClass([self class]), NSStringFromClass([implClass class])] userInfo: nil];}
 #define PSFinalClassInitialize(implClass) +(void)initialize{PSFinalClass(implClass)}
 
 
